@@ -1419,10 +1419,14 @@ select.form-control {
   .hero-buttons { flex-direction: column; }
   .hero-buttons .btn { width: 100%; }
   .hero-trust { flex-direction: column; gap: 12px; }
+  .hero-img { max-height: 240px; aspect-ratio: 16/10; }
 
   .btn-primary { padding: 14px 28px; font-size: 0.95rem; }
   .stat-number { font-size: 2rem; }
   .step-number { width: 34px; height: 34px; font-size: 0.75rem; }
+
+  .about-image img { min-height: 200px; }
+  .service-detail-img { min-height: 160px; }
 }
 
 /* ============================================
