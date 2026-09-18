@@ -9,7 +9,7 @@
   <meta property="og:description" content="PMEntreprenad AB utför bygg-, mark- och servicearbeten med fokus på kvalitet och pålitlighet. Kontakta oss för en offert.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sv_SE">
-  <link rel="stylesheet" href="/css/style.css?v=2">
+  <link rel="stylesheet" href="/css/style.css?v=3">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -19,8 +19,12 @@
   <!-- Navbar -->
   <nav class="navbar">
     <a href="/" class="navbar-brand">PMEntreprenad AB</a>
+    <a href="tel:0722897560" class="navbar-phone" aria-label="Ring oss">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      072-289 75 60
+    </a>
     <div class="nav-links">
-      <a href="/">Hem</a>
+      <a href="/" class="active">Hem</a>
       <a href="/tjanster.html">Tjänster</a>
       <a href="/om-oss.html">Om oss</a>
       <a href="/projekt.html">Projekt</a>
@@ -32,37 +36,61 @@
     </div>
   </nav>
 
-  <!-- Hero — Asymmetric Split -->
+  <!-- Hero -->
   <section class="hero">
+    <div class="hero-glow"></div>
     <div class="hero-inner">
       <div class="hero-text">
-        <h1>Bygg, mark och service — levererat med kvalitet</h1>
-        <p>Vi utför bygg-, mark- och servicearbeten i [ARBETSOMRÅDE]. Med erfarenhet och noggrannhet ser vi till att varje projekt blir precis som du önskar.</p>
-        <div class="hero-buttons">
+        <span class="badge reveal">Kvalitet &amp; pålitlighet</span>
+        <h1 class="reveal reveal-delay-1">Bygg, mark och service — levererat med kvalitet</h1>
+        <p class="reveal reveal-delay-2">Vi utför bygg-, mark- och servicearbeten i Stockholmsregionen. Med erfarenhet och noggrannhet ser vi till att varje projekt blir precis som du önskar.</p>
+        <div class="hero-buttons reveal reveal-delay-3">
           <a href="/begar-offert.html" class="btn-primary btn-lg">Begär offert <span class="btn-arrow">&rarr;</span></a>
           <a href="/kontakt.html" class="btn-outline">Kontakta oss</a>
         </div>
-        <div class="hero-trust">
+        <div class="hero-trust reveal reveal-delay-4">
           <span class="hero-trust-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            [X]+ avslutade projekt
+            150+ avslutade projekt
           </span>
           <span class="hero-trust-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Verksamma i [ARBETSOMRÅDE]
+            Stockholmsregionen
           </span>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="hero-graphic">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 20h20"/>
-            <path d="M5 20V8l7-5 7 5v12"/>
-            <rect x="9" y="12" width="6" height="8"/>
-            <line x1="12" y1="3" x2="12" y2="1"/>
-            <line x1="5" y1="8" x2="7" y2="8"/>
-            <line x1="17" y1="8" x2="19" y2="8"/>
-          </svg>
+      <div class="hero-visual reveal">
+        <img src="/images/HeroSection.jpg" alt="PMEntreprenad AB - Bygg, mark och service" class="hero-img" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- Så funkar det -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="badge badge-outline">Enkelt &amp; snabbt</span>
+        <h2>Så funkar det</h2>
+        <p>Från första kontakt till klart resultat — så här går det till.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-number"><span>1</span></div>
+          <svg class="process-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <h3>Beskriv ditt projekt</h3>
+          <p>Fyll i vårt enkla formulär med vad du behöver hjälp med.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-number"><span>2</span></div>
+          <svg class="process-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <h3>Vi återkommer med offert</h3>
+          <p>Vi granskar ditt ärende och skickar en offert anpassad efter dina behov.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step-number"><span>3</span></div>
+          <svg class="process-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h3>Vi utför jobbet</h3>
+          <p>Vårt team utför arbetet med kvalitet och noggrannhet från start till slut.</p>
         </div>
       </div>
     </div>
@@ -82,6 +110,7 @@
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><rect x="9" y="12" width="6" height="8"/></svg>
           </span>
           <div>
+            <span class="badge">Populärast</span>
             <h3>Bygg</h3>
             <p>Vi bygger bostadshus, tillbyggnader och andra byggnader efter dina önskemål. Från start till slut.</p>
             <span class="service-link btn-ghost">Läs mer <span class="btn-arrow">&rarr;</span></span>
@@ -175,19 +204,19 @@
     <div class="container">
       <div class="stats-row">
         <div class="stat-item">
-          <span class="stat-number">[X]+</span>
+          <span class="stat-number" data-count="10" data-suffix="+">0+</span>
           <span class="stat-label">År av erfarenhet</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">[X]+</span>
+          <span class="stat-number" data-count="150" data-suffix="+">0+</span>
           <span class="stat-label">Avslutade projekt</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">100%</span>
+          <span class="stat-number" data-count="100" data-suffix="%">0%</span>
           <span class="stat-label">Kvalitetsfokus</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">[X]+</span>
+          <span class="stat-number" data-count="100" data-suffix="+">0+</span>
           <span class="stat-label">Nöjda kunder</span>
         </div>
       </div>
@@ -195,13 +224,17 @@
   </section>
 
   <!-- CTA — Split Layout -->
-  <section class="section fade-in">
+  <section class="section cta-section fade-in">
     <div class="container">
       <div class="cta-split">
         <div class="cta-split-text">
           <h2>Har du ett projekt på gång?</h2>
           <p>Beskriv vad du behöver hjälp med så återkommer vi med en offert anpassad efter ditt projekt.</p>
-          <div>
+          <div class="response-badge">
+            <span class="response-badge-dot"></span>
+            Svarar vanligtvis inom 24 timmar
+          </div>
+          <div style="margin-top: 24px;">
             <a href="/begar-offert.html" class="btn-primary">Begär offert <span class="btn-arrow">&rarr;</span></a>
           </div>
         </div>
@@ -236,18 +269,30 @@
         <div class="footer-col">
           <h3>Kontakt</h3>
           <ul>
-            <li>[TELEFON]</li>
-            <li>[E-POST]</li>
-            <li>[ADRESS]</li>
-            <li>[ARBETSOMRÅDE]</li>
+            <li><a href="tel:0722897560">072-289 75 60</a></li>
+            <li><a href="mailto:PM.Entreprenad@hotmail.com">PM.Entreprenad@hotmail.com</a></li>
+            <li>Stockholmsregionen</li>
           </ul>
+          <div class="response-badge" style="margin-top: 16px;">
+            <span class="response-badge-dot"></span>
+            Svar inom 24 timmar
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 PMEntreprenad AB. Alla rättigheter förbehållna. Org.nr: [ORG.NR]</p>
+        <p>&copy; 2026 PMEntreprenad AB. Alla rättigheter förbehållna.</p>
       </div>
     </div>
   </footer>
+
+  <!-- Sticky CTA (bottom bar) -->
+  <div class="sticky-cta">
+    <span class="sticky-cta-text">Redo att komma igång?</span>
+    <a href="tel:0722897560" class="sticky-cta-phone" aria-label="Ring oss">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+    <a href="/begar-offert.html" class="btn-primary">Begär offert <span class="btn-arrow">&rarr;</span></a>
+  </div>
 
   <script src="/js/script.js"></script>
 </body>

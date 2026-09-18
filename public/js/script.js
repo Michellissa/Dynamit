@@ -1,5 +1,5 @@
 // ============================================================
-// script.js – Dynamit Bygg
+// script.js – Dynamit Bygg v3
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,18 +51,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ----------------------------------------------------------
-  // 3. Contact Form (id="contactForm")
+  // 3. Contact Form
   // ----------------------------------------------------------
   const contactForm = document.getElementById('contactForm');
 
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-
       const form = e.target;
       const submitBtn = form.querySelector('button[type="submit"]');
       const messageBox = form.querySelector('.form-message') || createMessageElement(form);
-
       const data = Object.fromEntries(new FormData(form));
 
       setButtonLoading(submitBtn, true);
@@ -75,11 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
         });
-
         const result = await response.json();
-
         if (!response.ok) throw new Error(result.error || 'Failed');
-
         showMessage(messageBox, 'success', 'Meddelande skickat! Vi återkommer snart.');
         form.reset();
       } catch (err) {
@@ -91,18 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ----------------------------------------------------------
-  // 4. Quote Form (id="quoteForm")
+  // 4. Quote Form
   // ----------------------------------------------------------
   const quoteForm = document.getElementById('quoteForm');
 
   if (quoteForm) {
     quoteForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-
       const form = e.target;
       const submitBtn = form.querySelector('button[type="submit"]');
       const messageBox = form.querySelector('.form-message') || createMessageElement(form);
-
       const formData = new FormData(form);
       const data = {};
       const files = [];
@@ -120,40 +113,29 @@ document.addEventListener('DOMContentLoaded', () => {
       messageBox.className = 'form-message';
 
       try {
-        // Upload files first
         if (files.length > 0) {
           const uploadData = new FormData();
           files.forEach(f => uploadData.append('bilder', f.file));
-
-          const uploadRes = await fetch('/api/upload', {
-            method: 'POST',
-            body: uploadData,
-          });
-
+          const uploadRes = await fetch('/api/upload', { method: 'POST', body: uploadData });
           if (!uploadRes.ok) throw new Error('Filuppladdning misslyckades');
-
           const uploadResult = await uploadRes.json();
           data.bilder = uploadResult.files.map(f => f.url);
         }
 
-        // Submit quote request
         const response = await fetch('/api/quote', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
         });
-
         const result = await response.json();
-
         if (!response.ok) throw new Error(result.error || 'Failed');
 
-        // Show success, hide form
         form.style.display = 'none';
         const successDiv = document.getElementById('quoteSuccess');
         if (successDiv) {
           successDiv.style.display = 'block';
         } else {
-          showMessage(messageBox, 'success', 'Offertförfrågan skickad! Vi återkommer så snart som möjligt.');
+          showMessage(messageBox, 'success', 'Offertforfragans skickad! Vi atar som mojligt.');
         }
       } catch (err) {
         showMessage(messageBox, 'error', err.message || 'Ett fel inträffade. Försök igen senare.');
@@ -170,10 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
     anchor.addEventListener('click', (e) => {
       const targetId = anchor.getAttribute('href');
       if (targetId === '#') return;
-
       const targetEl = document.querySelector(targetId);
       if (!targetEl) return;
-
       e.preventDefault();
       const navbarHeight = navbar ? navbar.offsetHeight : 80;
       const top = targetEl.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
@@ -182,23 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ----------------------------------------------------------
-  // 6. Active Nav Link
-  // ----------------------------------------------------------
-  const currentPath = window.location.pathname.replace(/\/$/, '') || '/index.html';
-
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (!href) return;
-    const linkPath = href.replace(/\/$/, '') || '/index.html';
-
-    // Don't override the explicit "active" class set in HTML
-    if (linkPath === currentPath && !link.classList.contains('btn')) {
-      // The HTML already has active class where needed
-    }
-  });
-
-  // ----------------------------------------------------------
-  // 7. Scroll to Top Button
+  // 6. Scroll to Top Button
   // ----------------------------------------------------------
   let scrollToTopBtn = document.querySelector('.scroll-to-top');
 
@@ -226,36 +190,123 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ----------------------------------------------------------
-  // 8. Scroll Animations (IntersectionObserver)
+  // 7. Scroll Reveal (fade-in + reveal classes)
   // ----------------------------------------------------------
-  const fadeElements = document.querySelectorAll('.fade-in');
+  const revealEls = document.querySelectorAll('.fade-in, .reveal');
 
-  if (fadeElements.length > 0 && 'IntersectionObserver' in window) {
-    const fadeObserver = new IntersectionObserver(
+  if (revealEls.length > 0 && 'IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            fadeObserver.unobserve(entry.target);
+            revealObserver.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.12 }
     );
-
-    fadeElements.forEach(el => fadeObserver.observe(el));
+    revealEls.forEach(el => revealObserver.observe(el));
   } else {
-    fadeElements.forEach(el => el.classList.add('visible'));
+    revealEls.forEach(el => el.classList.add('visible'));
   }
 
-  // ==========================================================
-  // Helper Functions
-  // ==========================================================
+  // ----------------------------------------------------------
+  // 8. Count-Up Animation (stats numbers)
+  // ----------------------------------------------------------
+  const statNumbers = document.querySelectorAll('.stat-number[data-count]');
 
+  function animateCountUp(el) {
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 2000;
+    const start = performance.now();
+
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.round(easeOutCubic(progress) * target);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    el.textContent = '0' + suffix;
+    requestAnimationFrame(tick);
+  }
+
+  if (statNumbers.length > 0 && 'IntersectionObserver' in window) {
+    const countObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCountUp(entry.target);
+            countObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    statNumbers.forEach(el => countObserver.observe(el));
+  } else {
+    statNumbers.forEach(el => {
+      el.textContent = (el.dataset.count || '0') + (el.dataset.suffix || '');
+    });
+  }
+
+  // ----------------------------------------------------------
+  // 9. Hero Parallax Effect
+  // ----------------------------------------------------------
+  const heroImg = document.querySelector('.hero-visual img, .hero-img');
+
+  if (heroImg) {
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrolled = window.scrollY;
+          if (scrolled < 800) {
+            const rate = scrolled * 0.25;
+            heroImg.style.transform = 'translateY(' + rate + 'px) scale(1.05)';
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+
+  // ----------------------------------------------------------
+  // 10. Sticky CTA Bar (shows after scrolling past hero)
+  // ----------------------------------------------------------
+  const stickyCta = document.querySelector('.sticky-cta');
+
+  if (stickyCta) {
+    const hero = document.querySelector('.hero');
+    const threshold = hero ? hero.offsetHeight : 400;
+
+    function handleStickyCta() {
+      if (window.scrollY > threshold) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', handleStickyCta);
+    handleStickyCta();
+  }
+
+  // ----------------------------------------------------------
+  // Helper Functions
+  // ----------------------------------------------------------
   function showMessage(el, type, text) {
     el.textContent = text;
-    el.className = `form-message ${type}`;
-
+    el.className = 'form-message ' + type;
     setTimeout(() => {
       el.textContent = '';
       el.className = 'form-message';

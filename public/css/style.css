@@ -378,31 +378,18 @@ p { margin-bottom: 1rem; line-height: 1.7; color: var(--c-text-sec); }
   justify-content: center;
 }
 
-.hero-graphic {
+.hero-img {
   width: 100%;
-  aspect-ratio: 1;
-  max-width: 420px;
-  background: linear-gradient(135deg, rgba(200,145,58,0.15), rgba(200,145,58,0.05));
+  max-width: 480px;
+  aspect-ratio: 4/5;
+  object-fit: cover;
   border-radius: var(--r-xl);
-  border: 1px solid rgba(255,255,255,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hero-graphic::before {
-  content: '';
-  position: absolute;
-  inset: 20px;
-  border: 1px dashed rgba(255,255,255,0.08);
-  border-radius: var(--r-lg);
-}
-
-.hero-graphic svg {
-  width: 120px;
-  height: 120px;
-  color: rgba(200,145,58,0.4);
+.hero-visual:hover .hero-img {
+  transform: scale(1.02);
 }
 
 /* --------------------------------------------
@@ -634,6 +621,54 @@ p { margin-bottom: 1rem; line-height: 1.7; color: var(--c-text-sec); }
   margin-bottom: 0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* Service Detail Row with Image */
+.service-detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.service-detail-row:last-child {
+  border-bottom: none;
+}
+
+.service-detail-row:nth-child(even) {
+  direction: rtl;
+}
+
+.service-detail-row:nth-child(even) > * {
+  direction: ltr;
+}
+
+.service-detail-img {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--c-warm);
+}
+
+.service-detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-detail-img:hover img {
+  transform: scale(1.05);
+}
+
+.service-detail-img--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-text-muted);
 }
 
 /* --------------------------------------------
@@ -1201,10 +1236,22 @@ select.form-control {
 .about-text p { color: var(--c-text-sec); margin-bottom: 16px; line-height: 1.75; }
 
 .about-image {
-  background: var(--c-warm);
   border-radius: var(--r-lg);
-  min-height: 360px;
+  overflow: hidden;
   border: 1px solid var(--c-border);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 360px;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-image:hover img {
+  transform: scale(1.03);
 }
 
 /* --------------------------------------------
@@ -1287,7 +1334,8 @@ select.form-control {
   .section, .section-alt { padding: 72px 0; }
 
   .hero-inner { grid-template-columns: 1fr; gap: 40px; padding-top: 100px; }
-  .hero-visual { display: none; }
+  .hero-visual { margin-top: 32px; }
+  .hero-img { max-width: 100%; max-height: 300px; }
   .hero-text { max-width: 100%; }
 
   .services-bento { grid-template-columns: repeat(2, 1fr); }
@@ -1355,6 +1403,10 @@ select.form-control {
 
   .footer { padding: 40px 0 0; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+
+  .service-detail-row { grid-template-columns: 1fr; gap: 20px; padding: 28px 0; }
+  .service-detail-row:nth-child(even) { direction: ltr; }
+  .service-detail-img { min-height: 200px; }
 }
 
 /* --------------------------------------------
@@ -1371,4 +1423,448 @@ select.form-control {
   .btn-primary { padding: 14px 28px; font-size: 0.95rem; }
   .stat-number { font-size: 2rem; }
   .step-number { width: 34px; height: 34px; font-size: 0.75rem; }
+}
+
+/* ============================================
+   VISUAL UPGRADES v3 — Premium Feel
+   ============================================ */
+
+/* --------------------------------------------
+   A. Button Shine / Glow Sweep
+   -------------------------------------------- */
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: none;
+  animation: btnShine 4s ease-in-out infinite;
+}
+
+@keyframes btnShine {
+  0%, 70%, 100% { left: -100%; }
+  85% { left: 150%; }
+}
+
+/* --------------------------------------------
+   B. Hero Glow / Spotlight
+   -------------------------------------------- */
+
+.hero-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,145,58,0.12) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+  animation: glowPulse 5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* --------------------------------------------
+   C. Section Headline Glow Underline
+   -------------------------------------------- */
+
+.section-header h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--c-accent), transparent);
+  border-radius: 2px;
+  animation: lineGlow 3s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+  0%, 100% { opacity: 0.5; width: 60px; }
+  50% { opacity: 1; width: 100px; }
+}
+
+/* --------------------------------------------
+   D. Card Hover — Tilt + Glow
+   -------------------------------------------- */
+
+.service-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(200,145,58,0.12), 0 0 0 1px rgba(200,145,58,0.08);
+}
+
+.project-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(200,145,58,0.15), 0 0 0 1px rgba(200,145,58,0.1);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(200,145,58,0.1);
+}
+
+/* --------------------------------------------
+   E. Colored Shadows (warm tint)
+   -------------------------------------------- */
+
+.service-card { box-shadow: 0 4px 20px rgba(200,145,58,0.06); }
+.project-card { box-shadow: 0 4px 20px rgba(200,145,58,0.06); }
+.feature-card { box-shadow: 0 4px 20px rgba(200,145,58,0.05); }
+
+/* --------------------------------------------
+   F. Noise / Grain Texture (dark sections)
+   -------------------------------------------- */
+
+.hero::after,
+.stats-band::before,
+.cta-section::before,
+.footer {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Keep existing hero pattern on top of noise */
+.hero::after {
+  background:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.015) 40px,
+      rgba(255,255,255,0.015) 41px
+    );
+}
+
+/* --------------------------------------------
+   G. Service Icon — Bigger, Round, Colored
+   -------------------------------------------- */
+
+.service-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-warm), var(--c-warm-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-accent);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(200,145,58,0.1);
+}
+
+.service-card.featured .service-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, var(--c-accent), var(--c-accent-hover));
+  color: var(--c-white);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(200,145,58,0.25);
+}
+
+/* --------------------------------------------
+   H. Sticky CTA (bottom bar on scroll)
+   -------------------------------------------- */
+
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(30,45,61,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 998;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-top: 1px solid rgba(200,145,58,0.15);
+}
+
+.sticky-cta.visible {
+  transform: translateY(0);
+}
+
+.sticky-cta-text {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.sticky-cta .btn-primary {
+  padding: 10px 24px;
+  font-size: 0.88rem;
+}
+
+.sticky-cta-phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--c-white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.sticky-cta-phone svg {
+  color: var(--c-accent);
+}
+
+/* --------------------------------------------
+   I. "Så funkar det" — Process Steps
+   -------------------------------------------- */
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--c-border), var(--c-accent), var(--c-border), transparent);
+}
+
+.process-step {
+  text-align: center;
+  position: relative;
+}
+
+.process-step-number {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--c-white);
+  border: 3px solid var(--c-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 1;
+  transition: all var(--t-normal);
+}
+
+.process-step-number span {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--c-accent);
+}
+
+.process-step:hover .process-step-number {
+  background: var(--c-accent);
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(200,145,58,0.25);
+}
+
+.process-step:hover .process-step-number span {
+  color: var(--c-white);
+}
+
+.process-step-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--c-text-muted);
+  margin: 0 auto 12px;
+}
+
+.process-step h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.process-step p {
+  color: var(--c-text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------
+   J. Badge / Tag
+   -------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 100px;
+  background: var(--c-accent);
+  color: var(--c-white);
+}
+
+.badge-outline {
+  background: transparent;
+  border: 1.5px solid var(--c-accent);
+  color: var(--c-accent);
+}
+
+.badge svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* --------------------------------------------
+   K. Phone Link in Navbar (mobile)
+   -------------------------------------------- */
+
+.navbar-phone {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  color: var(--c-white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+}
+
+.navbar-phone svg {
+  color: var(--c-accent);
+}
+
+.navbar.scrolled .navbar-phone { color: var(--c-primary); }
+
+/* --------------------------------------------
+   L. Response Time Indicator
+   -------------------------------------------- */
+
+.response-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #e8f5ee;
+  border: 1px solid #b8e0c5;
+  border-radius: var(--r-md);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--c-success);
+}
+
+.response-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-success);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* --------------------------------------------
+   M. Reveal / Fade-up Animation
+   -------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* --------------------------------------------
+   N. Stat Number — Gold Glow
+   -------------------------------------------- */
+
+.stat-number {
+  text-shadow: 0 0 30px rgba(200,145,58,0.2);
+}
+
+/* --------------------------------------------
+   O. Hero Bigger Headline
+   -------------------------------------------- */
+
+.hero-text h1 {
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  font-weight: 800;
+}
+
+.hero-text .btn-primary {
+  padding: 18px 44px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* --------------------------------------------
+   P. Responsive additions
+   -------------------------------------------- */
+
+@media (max-width: 768px) {
+  .process-steps { grid-template-columns: 1fr; gap: 32px; }
+  .process-steps::before { display: none; }
+  .navbar-phone { display: flex; }
+  .sticky-cta-text { display: none; }
+  .hero-glow { width: 300px; height: 300px; }
+}
+
+@media (max-width: 480px) {
+  .hero-text .btn-primary { padding: 16px 32px; font-size: 1rem; }
+  .process-step-number { width: 60px; height: 60px; }
+  .process-step-number span { font-size: 1.2rem; }
 }
