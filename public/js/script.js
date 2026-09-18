@@ -258,30 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ----------------------------------------------------------
-  // 9. Hero Parallax Effect
-  // ----------------------------------------------------------
-  const heroImg = document.querySelector('.hero-visual img, .hero-img');
-
-  if (heroImg) {
-    let ticking = false;
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrolled = window.scrollY;
-          if (scrolled < 800) {
-            const rate = scrolled * 0.25;
-            heroImg.style.transform = 'translateY(' + rate + 'px) scale(1.05)';
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-  }
-
-  // ----------------------------------------------------------
-  // 10. Sticky CTA Bar (shows after scrolling past hero)
+  // 9. Sticky CTA Bar (shows after scrolling past hero)
   // ----------------------------------------------------------
   const stickyCta = document.querySelector('.sticky-cta');
 
