@@ -1999,6 +1999,14 @@ select.form-control {
   padding-left: 4px;
 }
 
+.navbar:not(.scrolled) .mega-menu .mega-col li a {
+  color: var(--c-text-sec);
+}
+
+.navbar:not(.scrolled) .mega-menu .mega-heading {
+  color: var(--c-primary);
+}
+
 /* --- Mobile accordion --- */
 
 @media (max-width: 768px) {
