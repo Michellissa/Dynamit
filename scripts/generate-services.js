@@ -487,7 +487,6 @@ const NAVHTML = `
         </div>
       </div>
       <a href="/om-oss.html">Om oss</a>
-      <a href="/projekt.html">Projekt</a>
       <a href="/kontakt.html">Kontakt</a>
       <a href="/begar-offert.html" class="btn-primary">Begär offert <span class="btn-arrow">&rarr;</span></a>
     </div>
@@ -516,7 +515,6 @@ function getFooter() {
           <ul>
             <li><a href="/">Hem</a></li>
             <li><a href="/om-oss.html">Om oss</a></li>
-            <li><a href="/projekt.html">Projekt</a></li>
             <li><a href="/kontakt.html">Kontakt</a></li>
             <li><a href="/begar-offert.html">Begär offert</a></li>
           </ul>
