@@ -231,7 +231,11 @@ p { margin-bottom: 1rem; line-height: 1.7; color: var(--c-text-sec); }
   flex-shrink: 0;
 }
 
-.navbar.scrolled .navbar-brand { color: var(--c-primary); }
+.navbar-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
 
 .nav-links {
   display: flex;
@@ -1877,4 +1881,191 @@ select.form-control {
   .hero-text .btn-primary { padding: 16px 32px; font-size: 1rem; }
   .process-step-number { width: 60px; height: 60px; }
   .process-step-number span { font-size: 1.2rem; }
+}
+
+/* ============================================
+   MEGA MENU / SERVICE DROPDOWN
+   ============================================ */
+
+/* --- Desktop dropdown --- */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.8);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--t-normal);
+}
+
+.nav-dropdown-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+.navbar.scrolled .nav-dropdown-toggle {
+  color: var(--c-text-sec);
+}
+
+.nav-dropdown-toggle:hover {
+  color: #fff;
+}
+
+.navbar.scrolled .nav-dropdown-toggle:hover {
+  color: var(--c-primary);
+}
+
+.nav-dropdown.open .nav-dropdown-toggle svg {
+  transform: rotate(180deg);
+}
+
+.mega-menu {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--c-white);
+  border-radius: var(--r-lg);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+  padding: 28px 32px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 1001;
+  min-width: 640px;
+}
+
+.nav-dropdown.open .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.mega-menu-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.mega-col {}
+
+.mega-heading {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--c-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--c-accent);
+  text-decoration: none;
+  transition: color var(--t-normal);
+}
+
+.mega-heading:hover {
+  color: var(--c-accent);
+}
+
+.mega-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mega-col li a {
+  display: block;
+  padding: 5px 0;
+  color: var(--c-text-sec);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color var(--t-normal), padding-left 0.2s ease;
+}
+
+.mega-col li a:hover {
+  color: var(--c-accent);
+  padding-left: 4px;
+}
+
+/* --- Mobile accordion --- */
+
+@media (max-width: 768px) {
+  .mega-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    min-width: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .nav-dropdown.open .mega-menu {
+    max-height: 800px;
+  }
+
+  .mega-menu-inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 12px 0;
+  }
+
+  .mega-col {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .mega-col:last-child {
+    border-bottom: none;
+  }
+
+  .mega-heading {
+    color: var(--c-accent);
+    padding: 10px 0;
+    border-bottom: none;
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+
+  .mega-col ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .mega-col.open ul {
+    max-height: 400px;
+  }
+
+  .mega-col li a {
+    color: rgba(255,255,255,0.7);
+    padding: 6px 0 6px 16px;
+    font-size: 0.9rem;
+  }
+
+  .mega-col li a:hover {
+    color: var(--c-white);
+    padding-left: 20px;
+  }
+
+  .nav-links a:not(.btn):not(.nav-dropdown-toggle) {
+    font-size: 1rem;
+  }
 }

@@ -51,7 +51,50 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ----------------------------------------------------------
-  // 3. Contact Form
+  // 3. Mega Menu Dropdown
+  // ----------------------------------------------------------
+  const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+  const dropdown = document.querySelector('.nav-dropdown');
+
+  if (dropdownToggle && dropdown) {
+    dropdownToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle('open');
+      dropdownToggle.setAttribute('aria-expanded', dropdown.classList.contains('open'));
+    });
+
+    // Mobile: accordion sub-categories
+    const megaCols = document.querySelectorAll('.mega-col');
+    megaCols.forEach(col => {
+      const heading = col.querySelector('.mega-heading');
+      if (heading) {
+        heading.addEventListener('click', () => {
+          col.classList.toggle('open');
+        });
+      }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+        dropdown.classList.remove('open');
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+        dropdownToggle.focus();
+      }
+    });
+  }
+
+  // ----------------------------------------------------------
+  // 4. Contact Form
   // ----------------------------------------------------------
   const contactForm = document.getElementById('contactForm');
 

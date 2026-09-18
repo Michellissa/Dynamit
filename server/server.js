@@ -192,7 +192,7 @@ app.post("/api/contact", async (req, res) => {
 
 app.post("/api/quote", async (req, res) => {
   const {
-    namn, epost, telefon, tjanst, ort, adress,
+    namn, epost, telefon, tjanst, underkategori, ort, adress,
     beskrivning, onskatDatum, bilder,
   } = req.body;
 
@@ -213,6 +213,7 @@ app.post("/api/quote", async (req, res) => {
     `Telefon: ${telefon || "Ej angivet"}`,
     ``,
     `Tjänst: ${tjanst || "Ej angivet"}`,
+    underkategori ? `Underkategori: ${underkategori}` : '',
     `Ort: ${ort || "Ej angivet"}`,
     `Adress: ${adress || "Ej angivet"}`,
     `Önskat datum: ${onskatDatum || "Ej angivet"}`,
@@ -233,6 +234,7 @@ app.post("/api/quote", async (req, res) => {
         <tr><td style="padding:8px 12px;font-weight:600;color:#1a1a2e;">E-post</td><td style="padding:8px 12px;">${escapeHtml(epost)}</td></tr>
         <tr><td style="padding:8px 12px;font-weight:600;color:#1a1a2e;">Telefon</td><td style="padding:8px 12px;">${escapeHtml(telefon) || "Ej angivet"}</td></tr>
         <tr><td style="padding:8px 12px;font-weight:600;color:#1a1a2e;">Tjänst</td><td style="padding:8px 12px;">${escapeHtml(tjanst) || "Ej angivet"}</td></tr>
+        ${underkategori ? `<tr><td style="padding:8px 12px;font-weight:600;color:#1a1a2e;">Underkategori</td><td style="padding:8px 12px;">${escapeHtml(underkategori)}</td></tr>` : ''}
         <tr><td style="padding:8px 12px;font-weight:600;color:#1a1a2e;">Ort</td><td style="padding:8px 12px;">${escapeHtml(ort) || "Ej angivet"}</td></tr>
         <tr><td style="padding:8px 12px;font-weight:600;color:#1a1a2e;">Adress</td><td style="padding:8px 12px;">${escapeHtml(adress) || "Ej angivet"}</td></tr>
         <tr><td style="padding:8px 12px;font-weight:600;color:#1a1a2e;">Önskat datum</td><td style="padding:8px 12px;">${escapeHtml(onskatDatum) || "Ej angivet"}</td></tr>
@@ -264,7 +266,7 @@ app.post("/api/quote", async (req, res) => {
     ``,
     `Tack för din offertförfrågan till ${COMPANY.name}.`,
     ``,
-    `Vi har mottagit din förfrågan om ${tjanst || "arbete"} och återkommer`,
+    `Vi har mottagit din förfrågan om ${tjanst || "arbete"}${underkategori ? ` – ${underkategori}` : ''} och återkommer`,
     `så snart vi har granskat beskrivningen.`,
     ``,
     `Med vänlig hälsning,`,
@@ -284,7 +286,7 @@ app.post("/api/quote", async (req, res) => {
       </p>
       <div style="background:#f7f8fa;padding:16px;border-radius:8px;border-left:3px solid #c8913a;margin:20px 0;">
         <p style="margin:0;color:#1a1a2e;font-weight:600;">Din förfrågan:</p>
-        <p style="margin:8px 0 0;color:#5a6070;">${escapeHtml(tjanst || "Ej angivet")} – ${escapeHtml(ort || "")}</p>
+        <p style="margin:8px 0 0;color:#5a6070;">${escapeHtml(tjanst || "Ej angivet")}${underkategori ? ` – ${escapeHtml(underkategori)}` : ''} – ${escapeHtml(ort || "")}</p>
       </div>
       <p style="color:#5a6070;line-height:1.7;">
         Med vänlig hälsning,<br/>
