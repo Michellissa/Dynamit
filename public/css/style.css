@@ -942,15 +942,22 @@ p { margin-bottom: 1rem; line-height: 1.7; color: var(--c-text-sec); }
 }
 
 .cta-split-visual {
-  background: linear-gradient(135deg, rgba(200,145,58,0.2), rgba(200,145,58,0.05));
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: var(--r-lg);
+  overflow: hidden;
 }
 
-.cta-split-visual svg {
-  width: 100px; height: 100px;
-  color: rgba(200,145,58,0.3);
+.cta-split-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 240px;
+  border-radius: var(--r-lg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-split-visual:hover img {
+  transform: scale(1.03);
 }
 
 /* Inline CTA banner */
