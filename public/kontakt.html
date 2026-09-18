@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt | [FÖRETAGSNAMN]</title>
+  <meta name="description" content="Kontakta [FÖRETAGSNAMN] för bygg-, mark- och servicearbeten. Skicka en förfrågan eller begär offert idag.">
+  <meta property="og:title" content="Kontakt | [FÖRETAGSNAMN]">
+  <meta property="og:description" content="Kontakta [FÖRETAGSNAMN] för bygg-, mark- och servicearbeten. Skicka en förfrågan eller begär offert idag.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">[FÖRETAGSNAMN]</a>
+    <div class="nav-links">
+      <a href="/">Hem</a>
+      <a href="/tjanster.html">Tjänster</a>
+      <a href="/om-oss.html">Om oss</a>
+      <a href="/projekt.html">Projekt</a>
+      <a href="/kontakt.html" class="active">Kontakt</a>
+      <a href="/begar-offert.html" class="btn-secondary">Begär offert</a>
+    </div>
+    <div class="hamburger" aria-label="Öppna meny" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <p class="breadcrumb">Hem &gt; Kontakt</p>
+      <h1>Kontakta oss</h1>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section fade-in">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-form-wrapper">
+          <h2>Skicka ett meddelande</h2>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="namn">Namn *</label>
+              <input type="text" id="namn" name="namn" required>
+            </div>
+            <div class="form-group">
+              <label for="epost">E-post *</label>
+              <input type="email" id="epost" name="epost" required>
+            </div>
+            <div class="form-group">
+              <label for="telefon">Telefon</label>
+              <input type="tel" id="telefon" name="telefon">
+            </div>
+            <div class="form-group">
+              <label for="meddelande">Meddelande *</label>
+              <textarea id="meddelande" name="meddelande" required></textarea>
+            </div>
+            <button type="submit" class="btn-secondary">Skicka meddelande</button>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-card">
+            <span class="contact-icon">📞</span>
+            <div>
+              <h3>Telefon</h3>
+              <p>[TELEFON]</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">✉️</span>
+            <div>
+              <h3>E-post</h3>
+              <p>[E-POST]</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">📍</span>
+            <div>
+              <h3>Adress</h3>
+              <p>[ADRESS]<br>[POSTNUMMER] [ORT]</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">🏢</span>
+            <div>
+              <h3>Organisation</h3>
+              <p>Org.nr: [ORG.NR]</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">🗺️</span>
+            <div>
+              <h3>Arbetsområde</h3>
+              <p>[ARBETSOMRÅDE]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section fade-in">
+    <div class="container">
+      <h2>Har du ett projekt på gång?</h2>
+      <p>Beskriv ditt projekt så återkommer vi med en offert så snart som möjligt.</p>
+      <a href="/begar-offert.html" class="btn-secondary">Begär offert</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>[FÖRETAGSNAMN]</h3>
+          <p>Din pålitliga partner inom bygg, mark och service. Vi levererar kvalitet i varje projekt.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Snabblänkar</h3>
+          <ul>
+            <li><a href="/">Hem</a></li>
+            <li><a href="/tjanster.html">Tjänster</a></li>
+            <li><a href="/om-oss.html">Om oss</a></li>
+            <li><a href="/projekt.html">Projekt</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
+            <li><a href="/begar-offert.html">Begär offert</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Kontakt</h3>
+          <ul>
+            <li>Phone: [TELEFON]</li>
+            <li>E-post: [E-POST]</li>
+            <li>Adress: [ADRESS]</li>
+            <li>Område: [ARBETSOMRÅDE]</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 [FÖRETAGSNAMN]. Alla rättigheter förbehållna. Org.nr: [ORG.NR]</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>

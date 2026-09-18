@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Begär offert | [FÖRETAGSNAMN]</title>
+  <meta name="description" content="Begär offert från [FÖRETAGSNAMN] för ditt nästa bygg-, mark- eller serviceprojekt. Fyll i formuläret så återkommer vi med ett skräddarsytt förslag.">
+  <meta property="og:title" content="Begär offert | [FÖRETAGSNAMN]">
+  <meta property="og:description" content="Begär offert från [FÖRETAGSNAMN] för ditt nästa bygg-, mark- eller serviceprojekt. Fyll i formuläret så återkommer vi med ett skräddarsytt förslag.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">[FÖRETAGSNAMN]</a>
+    <div class="nav-links">
+      <a href="/">Hem</a>
+      <a href="/tjanster.html">Tjänster</a>
+      <a href="/om-oss.html">Om oss</a>
+      <a href="/projekt.html">Projekt</a>
+      <a href="/kontakt.html">Kontakt</a>
+      <a href="/begar-offert.html" class="btn-secondary active">Begär offert</a>
+    </div>
+    <div class="hamburger" aria-label="Öppna meny" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <p class="breadcrumb">Hem &gt; Begär offert</p>
+      <h1>Begär offert</h1>
+      <p>Fyll i formuläret nedan så återkommer vi med en offert så snart som möjligt.</p>
+    </div>
+  </section>
+
+  <!-- Quote Form Section -->
+  <section class="section fade-in">
+    <div class="container">
+      <div class="quote-form-container">
+        <form id="quoteForm">
+
+          <!-- Steg 1: Kontaktuppgifter -->
+          <div class="form-step">
+            <h2>Steg 1: Kontaktuppgifter</h2>
+            <div class="form-group">
+              <label for="namn">Namn *</label>
+              <input type="text" id="namn" name="namn" required>
+            </div>
+            <div class="form-group">
+              <label for="telefon">Telefon *</label>
+              <input type="tel" id="telefon" name="telefon" required>
+            </div>
+            <div class="form-group">
+              <label for="epost">E-post *</label>
+              <input type="email" id="epost" name="epost" required>
+            </div>
+          </div>
+
+          <!-- Steg 2: Projekt -->
+          <div class="form-step">
+            <h2>Steg 2: Projekt</h2>
+            <div class="form-group">
+              <label for="tjanst">Typ av arbete *</label>
+              <select id="tjanst" name="tjanst" required>
+                <option value="" disabled selected>Välj tjänst...</option>
+                <option value="Bygg">Bygg</option>
+                <option value="Mark & grund">Mark &amp; grund</option>
+                <option value="Rivning">Rivning</option>
+                <option value="Grönyteskötsel">Grönyteskötsel</option>
+                <option value="Snöröjning">Snöröjning</option>
+                <option value="Lokalvård">Lokalvård</option>
+                <option value="Annat">Annat</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ort">Ort *</label>
+              <input type="text" id="ort" name="ort" required>
+            </div>
+            <div class="form-group">
+              <label for="adress">Adress (valfritt)</label>
+              <input type="text" id="adress" name="adress">
+            </div>
+          </div>
+
+          <!-- Steg 3: Beskrivning -->
+          <div class="form-step">
+            <h2>Steg 3: Beskrivning</h2>
+            <div class="form-group">
+              <label for="beskrivning">Beskrivning *</label>
+              <textarea id="beskrivning" name="beskrivning" placeholder="Beskriv vad du behöver hjälp med..." required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="onskatDatum">Önskat datum (valfritt)</label>
+              <input type="date" id="onskatDatum" name="onskatDatum">
+            </div>
+          </div>
+
+          <!-- Steg 4: Bilder -->
+          <div class="form-step">
+            <h2>Steg 4: Bilder (valfritt)</h2>
+            <p>Har du bilder på arbetet? Ladda gärna upp dem så kan vi lättare bedöma jobbet.</p>
+            <div class="form-group">
+              <input type="file" id="bilder" name="bilder" accept="image/*" multiple>
+            </div>
+          </div>
+
+          <!-- Godkännande -->
+          <div class="form-step">
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="godkanning" name="godkanning" required>
+                <span>Jag godkänner att [FÖRETAGSNAMN] behandlar mina uppgifter för att kunna hantera min offertförfrågan. *</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-secondary btn-full">Skicka offertförfrågan</button>
+
+        </form>
+
+        <!-- Success Message -->
+        <div id="quoteSuccess" class="quote-success" style="display: none;">
+          <p>Tack! Vi har tagit emot din offertförfrågan. Vi återkommer så snart som möjligt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section fade-in">
+    <div class="container">
+      <h2>Har du frågor?</h2>
+      <p>Tveka inte att kontakta oss om du har några frågor angående din offertförfrågan.</p>
+      <a href="/kontakt.html" class="btn-secondary">Kontakta oss</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>[FÖRETAGSNAMN]</h3>
+          <p>Din pålitliga partner inom bygg, mark och service. Vi levererar kvalitet i varje projekt.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Snabblänkar</h3>
+          <ul>
+            <li><a href="/">Hem</a></li>
+            <li><a href="/tjanster.html">Tjänster</a></li>
+            <li><a href="/om-oss.html">Om oss</a></li>
+            <li><a href="/projekt.html">Projekt</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
+            <li><a href="/begar-offert.html">Begär offert</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Kontakt</h3>
+          <ul>
+            <li>Phone: [TELEFON]</li>
+            <li>E-post: [E-POST]</li>
+            <li>Adress: [ADRESS]</li>
+            <li>Område: [ARBETSOMRÅDE]</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 [FÖRETAGSNAMN]. Alla rättigheter förbehållna. Org.nr: [ORG.NR]</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
