@@ -3,26 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Om oss | [FÖRETAGSNAMN]</title>
-  <meta name="description" content="Lär känna [FÖRETAGSNAMN] – ett svenskt bygg- och serviceföretag med lång erfarenhet av bygg-, mark- och servicearbeten. Kvalitet och pålitlighet i centrum.">
-  <meta property="og:title" content="Om oss | [FÖRETAGSNAMN]">
-  <meta property="og:description" content="Lär känna [FÖRETAGSNAMN] – ett svenskt bygg- och serviceföretag med lång erfarenhet av bygg-, mark- och servicearbeten. Kvalitet och pålitlighet i centrum.">
+  <title>Om oss | PMEntreprenad AB</title>
+  <meta name="description" content="Lär känna PMEntreprenad AB – ett svenskt bygg- och serviceföretag med lång erfarenhet av bygg-, mark- och servicearbeten. Kvalitet och pålitlighet i centrum.">
+  <meta property="og:title" content="Om oss | PMEntreprenad AB">
+  <meta property="og:description" content="Lär känna PMEntreprenad AB – ett svenskt bygg- och serviceföretag med lång erfarenhet av bygg-, mark- och servicearbeten. Kvalitet och pålitlighet i centrum.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sv_SE">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="/" class="navbar-brand">[FÖRETAGSNAMN]</a>
+    <a href="/" class="navbar-brand">PMEntreprenad AB</a>
     <div class="nav-links">
       <a href="/">Hem</a>
       <a href="/tjanster.html">Tjänster</a>
       <a href="/om-oss.html" class="active">Om oss</a>
       <a href="/projekt.html">Projekt</a>
       <a href="/kontakt.html">Kontakt</a>
-      <a href="/begar-offert.html" class="btn-secondary">Begär offert</a>
+      <a href="/begar-offert.html" class="btn-primary">Begär offert <span class="btn-arrow">&rarr;</span></a>
     </div>
     <div class="hamburger" aria-label="Öppna meny" role="button" tabindex="0">
       <span></span>
@@ -52,23 +55,23 @@
     </div>
   </section>
 
-  <!-- Stats Section -->
-  <section class="section-alt fade-in">
+  <!-- Stats — Edge-to-Edge Dark Band -->
+  <section class="stats-band fade-in">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-box">
+      <div class="stats-row">
+        <div class="stat-item">
           <span class="stat-number">[X]+ år</span>
           <span class="stat-label">Erfarenhet</span>
         </div>
-        <div class="stat-box">
+        <div class="stat-item">
           <span class="stat-number">[X]+</span>
           <span class="stat-label">Avslutade projekt</span>
         </div>
-        <div class="stat-box">
+        <div class="stat-item">
           <span class="stat-number">100%</span>
           <span class="stat-label">Kvalitetsfokus</span>
         </div>
-        <div class="stat-box">
+        <div class="stat-item">
           <span class="stat-number">[X]+</span>
           <span class="stat-label">Nöjda kunder</span>
         </div>
@@ -84,14 +87,23 @@
       </div>
       <div class="features-grid">
         <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
           <h3>Kvalitet</h3>
           <p>Vi strävar alltid efter högsta kvalitet i allt vi gör. Varje projekt utförs med noggrannhet och professionalism.</p>
         </div>
         <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
           <h3>Pålitlighet</h3>
           <p>Vi håller vad vi lovar. Tidsplaner, budget och avtal respekteras alltid.</p>
         </div>
         <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
           <h3>Kundfokus</h3>
           <p>Dina önskemål och behov står i centrum. Vi lyssnar och anpassar oss efter dig.</p>
         </div>
@@ -110,21 +122,23 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section fade-in">
-    <div class="container">
-      <h2>Har du ett projekt på gång?</h2>
-      <p>Beskriv ditt projekt så återkommer vi med en offert så snart som möjligt.</p>
-      <a href="/begar-offert.html" class="btn-secondary">Begär offert</a>
+  <!-- CTA Inline -->
+  <div class="cta-inline">
+    <div>
+      <h3>Redo att komma igång?</h3>
+      <p>Begär en offert så diskuterar vi ditt projekt.</p>
     </div>
-  </section>
+    <div>
+      <a href="/begar-offert.html" class="btn-primary">Begär offert <span class="btn-arrow">&rarr;</span></a>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h3>[FÖRETAGSNAMN]</h3>
+          <h3>PMEntreprenad AB</h3>
           <p>Din pålitliga partner inom bygg, mark och service. Vi levererar kvalitet i varje projekt.</p>
         </div>
         <div class="footer-col">
@@ -141,15 +155,15 @@
         <div class="footer-col">
           <h3>Kontakt</h3>
           <ul>
-            <li>Phone: [TELEFON]</li>
-            <li>E-post: [E-POST]</li>
+            <li>Telefon: 072-289 75 60</li>
+            <li>E-post: PM.Entreprenad@hotmail.com</li>
             <li>Adress: [ADRESS]</li>
             <li>Område: [ARBETSOMRÅDE]</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 [FÖRETAGSNAMN]. Alla rättigheter förbehållna. Org.nr: [ORG.NR]</p>
+        <p>&copy; 2026 PMEntreprenad AB. Alla rättigheter förbehållna. Org.nr: [ORG.NR]</p>
       </div>
     </div>
   </footer>

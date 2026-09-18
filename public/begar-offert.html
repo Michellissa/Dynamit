@@ -3,26 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Begär offert | [FÖRETAGSNAMN]</title>
-  <meta name="description" content="Begär offert från [FÖRETAGSNAMN] för ditt nästa bygg-, mark- eller serviceprojekt. Fyll i formuläret så återkommer vi med ett skräddarsytt förslag.">
-  <meta property="og:title" content="Begär offert | [FÖRETAGSNAMN]">
-  <meta property="og:description" content="Begär offert från [FÖRETAGSNAMN] för ditt nästa bygg-, mark- eller serviceprojekt. Fyll i formuläret så återkommer vi med ett skräddarsytt förslag.">
+  <title>Begär offert | PMEntreprenad AB</title>
+  <meta name="description" content="Begär offert från PMEntreprenad AB för ditt nästa bygg-, mark- eller serviceprojekt. Fyll i formuläret så återkommer vi med ett skräddarsytt förslag.">
+  <meta property="og:title" content="Begär offert | PMEntreprenad AB">
+  <meta property="og:description" content="Begär offert från PMEntreprenad AB för ditt nästa bygg-, mark- eller serviceprojekt. Fyll i formuläret så återkommer vi med ett skräddarsytt förslag.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sv_SE">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="/" class="navbar-brand">[FÖRETAGSNAMN]</a>
+    <a href="/" class="navbar-brand">PMEntreprenad AB</a>
     <div class="nav-links">
       <a href="/">Hem</a>
       <a href="/tjanster.html">Tjänster</a>
       <a href="/om-oss.html">Om oss</a>
       <a href="/projekt.html">Projekt</a>
       <a href="/kontakt.html">Kontakt</a>
-      <a href="/begar-offert.html" class="btn-secondary active">Begär offert</a>
+      <a href="/begar-offert.html" class="btn-primary">Begär offert <span class="btn-arrow">&rarr;</span></a>
     </div>
     <div class="hamburger" aria-label="Öppna meny" role="button" tabindex="0">
       <span></span>
@@ -44,11 +47,35 @@
   <section class="section fade-in">
     <div class="container">
       <div class="quote-form-container">
+
+        <!-- Step Progress -->
+        <div class="step-progress">
+          <div class="step-indicator active">
+            <div class="step-number">1</div>
+            <span class="step-label">Kontakt</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-indicator">
+            <div class="step-number">2</div>
+            <span class="step-label">Projekt</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-indicator">
+            <div class="step-number">3</div>
+            <span class="step-label">Detaljer</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-indicator">
+            <div class="step-number">4</div>
+            <span class="step-label">Bekräfta</span>
+          </div>
+        </div>
+
         <form id="quoteForm">
 
           <!-- Steg 1: Kontaktuppgifter -->
           <div class="form-step">
-            <h2>Steg 1: Kontaktuppgifter</h2>
+            <h2><span class="step-badge">1</span> Kontaktuppgifter</h2>
             <div class="form-group">
               <label for="namn">Namn *</label>
               <input type="text" id="namn" name="namn" required>
@@ -65,7 +92,7 @@
 
           <!-- Steg 2: Projekt -->
           <div class="form-step">
-            <h2>Steg 2: Projekt</h2>
+            <h2><span class="step-badge">2</span> Projekt</h2>
             <div class="form-group">
               <label for="tjanst">Typ av arbete *</label>
               <select id="tjanst" name="tjanst" required>
@@ -91,7 +118,7 @@
 
           <!-- Steg 3: Beskrivning -->
           <div class="form-step">
-            <h2>Steg 3: Beskrivning</h2>
+            <h2><span class="step-badge">3</span> Beskrivning</h2>
             <div class="form-group">
               <label for="beskrivning">Beskrivning *</label>
               <textarea id="beskrivning" name="beskrivning" placeholder="Beskriv vad du behöver hjälp med..." required></textarea>
@@ -102,26 +129,22 @@
             </div>
           </div>
 
-          <!-- Steg 4: Bilder -->
+          <!-- Steg 4: Bilder & bekräftelse -->
           <div class="form-step">
-            <h2>Steg 4: Bilder (valfritt)</h2>
+            <h2><span class="step-badge">4</span> Bilder &amp; bekräftelse</h2>
             <p>Har du bilder på arbetet? Ladda gärna upp dem så kan vi lättare bedöma jobbet.</p>
             <div class="form-group">
               <input type="file" id="bilder" name="bilder" accept="image/*" multiple>
             </div>
-          </div>
-
-          <!-- Godkännande -->
-          <div class="form-step">
-            <div class="form-group">
+            <div class="form-group" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--c-border);">
               <label class="checkbox-label">
                 <input type="checkbox" id="godkanning" name="godkanning" required>
-                <span>Jag godkänner att [FÖRETAGSNAMN] behandlar mina uppgifter för att kunna hantera min offertförfrågan. *</span>
+                <span>Jag godkänner att PMEntreprenad AB behandlar mina uppgifter i enlighet med GDPR för att kunna hantera min offertförfrågan. Mina uppgifter kommer att hanteras av PMEntreprenad AB och kommer inte att delas med tredje part. *</span>
               </label>
             </div>
           </div>
 
-          <button type="submit" class="btn-secondary btn-full">Skicka offertförfrågan</button>
+          <button type="submit" class="btn-primary btn-full btn-lg">Skicka offertförfrågan <span class="btn-arrow">&rarr;</span></button>
 
         </form>
 
@@ -147,7 +170,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h3>[FÖRETAGSNAMN]</h3>
+          <h3>PMEntreprenad AB</h3>
           <p>Din pålitliga partner inom bygg, mark och service. Vi levererar kvalitet i varje projekt.</p>
         </div>
         <div class="footer-col">
@@ -164,15 +187,13 @@
         <div class="footer-col">
           <h3>Kontakt</h3>
           <ul>
-            <li>Phone: [TELEFON]</li>
-            <li>E-post: [E-POST]</li>
-            <li>Adress: [ADRESS]</li>
-            <li>Område: [ARBETSOMRÅDE]</li>
+            <li>Telefon: 072-289 75 60</li>
+            <li>E-post: PM.Entreprenad@hotmail.com</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 [FÖRETAGSNAMN]. Alla rättigheter förbehållna. Org.nr: [ORG.NR]</p>
+        <p>&copy; 2026 PMEntreprenad AB. Alla rättigheter förbehållna.</p>
       </div>
     </div>
   </footer>

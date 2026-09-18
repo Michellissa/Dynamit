@@ -3,26 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projekt | [FÖRETAGSNAMN]</title>
-  <meta name="description" content="Se tidigare projekt utförda av [FÖRETAGSNAMN] inom bygg, mark, rivning, grönyteskötsel, snöröjning och lokalvård.">
-  <meta property="og:title" content="Projekt | [FÖRETAGSNAMN]">
-  <meta property="og:description" content="Se tidigare projekt utförda av [FÖRETAGSNAMN] inom bygg, mark, rivning, grönyteskötsel, snöröjning och lokalvård.">
+  <title>Projekt | PMEntreprenad AB</title>
+  <meta name="description" content="Se tidigare projekt utförda av PMEntreprenad AB inom bygg, mark, rivning, grönyteskötsel, snöröjning och lokalvård.">
+  <meta property="og:title" content="Projekt | PMEntreprenad AB">
+  <meta property="og:description" content="Se tidigare projekt utförda av PMEntreprenad AB inom bygg, mark, rivning, grönyteskötsel, snöröjning och lokalvård.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sv_SE">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="/" class="navbar-brand">[FÖRETAGSNAMN]</a>
+    <a href="/" class="navbar-brand">PMEntreprenad AB</a>
     <div class="nav-links">
       <a href="/">Hem</a>
       <a href="/tjanster.html">Tjänster</a>
       <a href="/om-oss.html">Om oss</a>
       <a href="/projekt.html" class="active">Projekt</a>
       <a href="/kontakt.html">Kontakt</a>
-      <a href="/begar-offert.html" class="btn-secondary">Begär offert</a>
+      <a href="/begar-offert.html" class="btn-primary">Begär offert <span class="btn-arrow">&rarr;</span></a>
     </div>
     <div class="hamburger" aria-label="Öppna meny" role="button" tabindex="0">
       <span></span>
@@ -34,20 +37,31 @@
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
-      <p class="breadcrumb">Hem &gt; Projekt</p>
+      <p class="breadcrumb"><a href="/">Hem</a> &gt; Projekt</p>
       <h1>Tidigare projekt</h1>
       <p>Vi tar gradvis upp bilder och beskrivningar av våra genomförda projekt.</p>
     </div>
   </section>
 
-  <!-- Projects Grid -->
+  <!-- Project Filters & Grid -->
   <section class="section fade-in">
     <div class="container">
+
+      <div class="project-filters">
+        <button class="filter-tab active">Alla</button>
+        <button class="filter-tab">Bygg</button>
+        <button class="filter-tab">Mark &amp; grund</button>
+        <button class="filter-tab">Rivning</button>
+        <button class="filter-tab">Grönyteskötsel</button>
+        <button class="filter-tab">Snöröjning</button>
+        <button class="filter-tab">Lokalvård</button>
+      </div>
+
       <div class="projects-grid">
 
         <div class="project-card">
           <div class="project-image" style="background-color: #2a5a8c;">
-            <span style="font-size: 3rem;">🔨</span>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><rect x="9" y="12" width="6" height="8"/></svg>
           </div>
           <div class="project-overlay">
             <span class="project-type">Bygg</span>
@@ -58,7 +72,7 @@
 
         <div class="project-card">
           <div class="project-image" style="background-color: #5a3a1c;">
-            <span style="font-size: 3rem;">🏗️</span>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20v-6"/><path d="M19 20v-6"/><path d="M9 20v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/><path d="M12 6V2"/><path d="M8 4l4-2 4 2"/></svg>
           </div>
           <div class="project-overlay">
             <span class="project-type">Mark &amp; grund</span>
@@ -69,7 +83,7 @@
 
         <div class="project-card">
           <div class="project-image" style="background-color: #8c4a2a;">
-            <span style="font-size: 3rem;">🏚️</span>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><path d="M12 12v4"/><path d="M9 16h6"/></svg>
           </div>
           <div class="project-overlay">
             <span class="project-type">Rivning</span>
@@ -80,7 +94,7 @@
 
         <div class="project-card">
           <div class="project-image" style="background-color: #2a7a3c;">
-            <span style="font-size: 3rem;">🌿</span>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 17 3.5s1 6 1 10.5a7 7 0 0 1-7 6.5z"/><path d="M12 20c-1.5 0-3-.5-4-1.5"/></svg>
           </div>
           <div class="project-overlay">
             <span class="project-type">Grönyteskötsel</span>
@@ -91,7 +105,7 @@
 
         <div class="project-card">
           <div class="project-image" style="background-color: #4a6a8c;">
-            <span style="font-size: 3rem;">❄️</span>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
           </div>
           <div class="project-overlay">
             <span class="project-type">Snöröjning</span>
@@ -102,7 +116,7 @@
 
         <div class="project-card">
           <div class="project-image" style="background-color: #6a5a7a;">
-            <span style="font-size: 3rem;">🧹</span>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/><path d="M5 21l1.5-4.5L11 15l-4.5 1.5L5 21z"/><path d="M19 15l1.5 4.5L22 21l-1.5-1.5L19 15z"/></svg>
           </div>
           <div class="project-overlay">
             <span class="project-type">Lokalvård</span>
@@ -115,12 +129,14 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section fade-in">
-    <div class="container">
-      <h2>Har du ett projekt på gång?</h2>
-      <p>Beskriv ditt projekt så återkommer vi med en offert så snart som möjligt.</p>
-      <a href="/begar-offert.html" class="btn-secondary">Begär offert</a>
+  <!-- CTA Banner -->
+  <section class="cta-banner fade-in">
+    <div class="container cta-banner-inner">
+      <div class="cta-banner-text">
+        <h2>Har du ett projekt på gång?</h2>
+        <p>Beskriv ditt projekt så återkommer vi med en offert så snart som möjligt.</p>
+      </div>
+      <a href="/begar-offert.html" class="btn-primary">Begär offert <span class="btn-arrow">&rarr;</span></a>
     </div>
   </section>
 
@@ -129,7 +145,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <h3>[FÖRETAGSNAMN]</h3>
+          <h3>PMEntreprenad AB</h3>
           <p>Din pålitliga partner inom bygg, mark och service. Vi levererar kvalitet i varje projekt.</p>
         </div>
         <div class="footer-col">
@@ -146,15 +162,13 @@
         <div class="footer-col">
           <h3>Kontakt</h3>
           <ul>
-            <li>Phone: [TELEFON]</li>
-            <li>E-post: [E-POST]</li>
-            <li>Adress: [ADRESS]</li>
-            <li>Område: [ARBETSOMRÅDE]</li>
+            <li>Telefon: 072-289 75 60</li>
+            <li>E-post: PM.Entreprenad@hotmail.com</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 [FÖRETAGSNAMN]. Alla rättigheter förbehållna. Org.nr: [ORG.NR]</p>
+        <p>&copy; 2026 PMEntreprenad AB. Alla rättigheter förbehållna.</p>
       </div>
     </div>
   </footer>
